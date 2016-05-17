@@ -12,7 +12,7 @@ Hadoop的mapreduce编程框架，使用者只需要专注于具体业务逻辑�
 ###一、编写具体逻辑
     在目录【Hadoop-Framework/src/com/taomee/bigdata/task】下编写具体Map 和 Reduce逻辑
 	例如：
-```
+```java
 public class Vip_day_Mapper extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text>
 {
     private Text outputKey = new Text();
@@ -45,7 +45,7 @@ rter) throws IOException
 ```
 ###二、编译
     在目录【Hadoop-Framework/src】下更改makefile文件，然后make（makefile中目录需要更改为自己的环境目录）
-```
+```Bash
 WORKDIR=../
 OBJDIR=$(WORKDIR)/obj
 SRCDIR=${WORKDIR}/src
@@ -67,7 +67,7 @@ clean:
 ```
 ###三、编写执行脚本
     以上均可在开发机上编写编译，编译后得到jar包后，可以拿到线上hadoop环境去执行，执行时需要有执行脚本，里面配置了执行参数
-```
+```Bash
 export LANG=en_US.UTF-8
 WORKDIR=`dirname $0`
 WORKDIR=`cd $WORKDIR && pwd`
